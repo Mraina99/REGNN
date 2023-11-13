@@ -136,30 +136,12 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
     # adata.uns["fiducial_diameter_fullres"] = scaler["fiducial_diameter_fullres"]
     # adata.uns["tissue_lowres_scalef"] = scaler["tissue_lowres_scalef"]
     # 038
-    """
-    if sample=="038":
-        data_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY01_20-0038/count.csv"
-        spatial_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY01_20-0038/spa.csv"
-        label_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY01_20-0038/038_new.csv"
-        output_folder = "/N/slate/mraina/RESEPT_EGNN/kidney_results_1/RGB_images/038/"
-    elif sample=="057":
-        data_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/count.csv"
-        spatial_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/spa.csv"
-        label_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/057_new.csv"
-        output_folder = "/N/slate/mraina/RESEPT_EGNN/kidney_results_1/RGB_images/057/"
-    elif sample=="M32":
-        data_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney019_XY02-M32/count.csv"
-        spatial_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney019_XY02-M32/spa.csv"
-        label_path="/N/slate/mraina/Juexin/Eadon/kidneydata/kidney019_XY02-M32/M32_new.csv"
-        output_folder = "/N/slate/mraina/RESEPT_EGNN/kidney_results_1/RGB_images/M32/"
-    """
-    directory_path = "/N/slate/mraina/Juexin/Eadon/kidneydata/"
+    
+    directory_path = "/data/"
     
     data_path= os.path.join(directory_path, sample, "count.csv")
     spatial_path= os.path.join(directory_path, sample, "spa.csv")
-    label_path= os.path.join(directory_path, sample, "labels.csv")
-    #output_folder = "/N/slate/mraina/RESEPT_EGNN/kidney_results_1/RGB_images/M32/"
-    
+    label_path= os.path.join(directory_path, sample, "labels.csv")    
     
     adata=load_data(data_path,spatial_path)[0]
     
@@ -228,21 +210,21 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                         #table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/bugtest.csv', index=True, header=True, mode = 'w')
 
                         
-                        table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/kmeans.csv', index_col=0)
+                        table = pd.read_csv('/result/kmeans.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/kmeans.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('/result/kmeans.csv', index=True, header=True, mode = 'w')
 
-                        table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/spectral.csv', index_col=0)
+                        table = pd.read_csv('/result/spectral.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/spectral.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('/result/spectral.csv', index=True, header=True, mode = 'w')
 
-                        table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/affinity.csv', index_col=0)
+                        table = pd.read_csv('/result/affinity.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/affinity.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('/result/affinity.csv', index=True, header=True, mode = 'w')
 
-                        table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/agglomerative.csv', index_col=0)
+                        table = pd.read_csv('/result/agglomerative.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/agglomerative.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('/result/agglomerative.csv', index=True, header=True, mode = 'w')
                         
 
                         return
@@ -339,21 +321,21 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                     #table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/bugtest.csv', index=True, header=True, mode = 'w')
 
                     
-                    table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/kmeans.csv', index_col=0)
+                    table = pd.read_csv('/result/kmeans.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_k
-                    table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/kmeans.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('/result/kmeans.csv', index=True, header=True, mode = 'w')
 
-                    table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/spectral.csv', index_col=0)
+                    table = pd.read_csv('/result/spectral.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_s
-                    table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/spectral.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('/result/spectral.csv', index=True, header=True, mode = 'w')
 
-                    table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/affinity.csv', index_col=0)
+                    table = pd.read_csv('/result/affinity.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_af
-                    table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/affinity.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('/result/affinity.csv', index=True, header=True, mode = 'w')
 
-                    table = pd.read_csv('/N/slate/mraina/RESEPT_EGNN/result/agglomerative.csv', index_col=0)
+                    table = pd.read_csv('/result/agglomerative.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_ag
-                    table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/agglomerative.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('/result/agglomerative.csv', index=True, header=True, mode = 'w')
                     
 
                     os.getcwd()
@@ -461,10 +443,10 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(index=pd.Index(zdim_index),
                         columns=PEalpha_col)
-    df.to_csv('/N/slate/mraina/RESEPT_EGNN/result/kmeans.csv', index=True, header=True, mode = 'w')
-    df.to_csv('/N/slate/mraina/RESEPT_EGNN/result/spectral.csv', index=True, header=True, mode = 'w')
-    df.to_csv('/N/slate/mraina/RESEPT_EGNN/result/affinity.csv', index=True, header=True, mode = 'w')
-    df.to_csv('/N/slate/mraina/RESEPT_EGNN/result/agglomerative.csv', index=True, header=True, mode = 'w')
+    df.to_csv('/result/kmeans.csv', index=True, header=True, mode = 'w')
+    df.to_csv('/result/spectral.csv', index=True, header=True, mode = 'w')
+    df.to_csv('/result/affinity.csv', index=True, header=True, mode = 'w')
+    df.to_csv('/result/agglomerative.csv', index=True, header=True, mode = 'w')
 
 
     """

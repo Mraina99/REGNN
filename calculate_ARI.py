@@ -68,15 +68,9 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
     scgnnsp_kList = ['6']
     scgnnsp_bypassAE_List = [True, False]
     scgnnsp_usePCA_List = [True, False]
-    
-    data_path = "/scratch/scdata/pipeline/original/"+sample+"/"
-    h5_path = sample+"_filtered_feature_bc_matrix.h5"
-    scale_factor_path = "spatial/scalefactors_json.json"
-    spatial_path = "spatial/tissue_positions_list.csv"
-    label_path = 'label_csv/'+sample+'.csv'
-    
+
     #Change data directory as needed
-    directory_path = "/N/slate/mraina/Juexin/Eadon/kidneydata/"
+    directory_path = "/data/"
     
     data_path= os.path.join(directory_path, sample, "count.csv")
     spatial_path= os.path.join(directory_path, sample, "spa.csv")
@@ -121,7 +115,7 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                     # embedding = embedding_data.loc[:, ['embedding0', 'embedding1', 'embedding2']].values
                     adata.obsm["embedding"] = embedding
                     #np.savetxt('embedding/'+sample+'/'+image_name+'_embedding.csv', embedding, delimiter=',')
-                    np.savetxt('/N/slate/mraina/REGNN/result/Embeddings/'+image_name+'_embedding.csv', adata.obsm["embedding"], delimiter=',')
+                    np.savetxt('/result/Embeddings/'+image_name+'_embedding.csv', adata.obsm["embedding"], delimiter=',')
                     
                     print('generate embedding finish')
 
@@ -143,9 +137,9 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                         else: 
                             ARI_result.to_csv('result/all_results.csv', index=True, header=False,mode = 'a')
                         
-                        table = pd.read_csv('/N/slate/mraina/REGNN/result/ARI_table.csv', index_col=0)
+                        table = pd.read_csv('/result/ARI_table.csv', index_col=0)
                         table.at[sample,column_name] = ARI
-                        table.to_csv('/N/slate/mraina/REGNN/result/ARI_table.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('/result/ARI_table.csv', index=True, header=True, mode = 'w')
                         
                         return
 
@@ -180,7 +174,7 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                     ARI, AMI, CHS, DBS, CS, CM, PCM, FMS, HCVM, HS, MI, NMI, RI, SSc, SSa, VMS = calculate(adata)
 
                     layer = adata.obs["layer"]
-                    np.savetxt('/N/slate/mraina/REGNN/result/Cluster_labels/'+image_name+'_clusters.csv', adata.obs["layer"], delimiter=',')
+                    np.savetxt('/result/Cluster_labels/'+image_name+'_clusters.csv', adata.obs["layer"], delimiter=',')
 
                     # Print clusters
                     """
@@ -237,9 +231,9 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                     else: 
                         ARI_result.to_csv('result/all_results.csv', index=True, header=False,mode = 'a')
                     
-                    table = pd.read_csv('/N/slate/mraina/REGNN/result/ARI_table.csv', index_col=0)
+                    table = pd.read_csv('/result/ARI_table.csv', index_col=0)
                     table.at[sample,column_name] = ARI
-                    table.to_csv('/N/slate/mraina/REGNN/result/ARI_table.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('/result/ARI_table.csv', index=True, header=True, mode = 'w')
                     
                     os.getcwd()
 
@@ -319,7 +313,7 @@ if __name__ == '__main__':
         for j in scgnnsp_PEalphaList:
             column_name = 'PEalpha' + str(j) + '_zdim' + str(i)
             df[column_name] = None
-    df.to_csv('/N/slate/mraina/REGNN/result/ARI_table.csv', index=True, header=True, mode = 'w')
+    df.to_csv('/result/ARI_table.csv', index=True, header=True, mode = 'w')
 
 
     # core_num = cpu_count()
