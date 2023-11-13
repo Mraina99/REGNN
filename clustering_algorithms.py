@@ -137,7 +137,7 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
     # adata.uns["tissue_lowres_scalef"] = scaler["tissue_lowres_scalef"]
     # 038
     
-    directory_path = "/data/"
+    directory_path = "data/"
     
     data_path= os.path.join(directory_path, sample, "count.csv")
     spatial_path= os.path.join(directory_path, sample, "spa.csv")
@@ -210,21 +210,21 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                         #table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/bugtest.csv', index=True, header=True, mode = 'w')
 
                         
-                        table = pd.read_csv('/result/kmeans.csv', index_col=0)
+                        table = pd.read_csv('result/kmeans.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/result/kmeans.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('result/kmeans.csv', index=True, header=True, mode = 'w')
 
-                        table = pd.read_csv('/result/spectral.csv', index_col=0)
+                        table = pd.read_csv('result/spectral.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/result/spectral.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('result/spectral.csv', index=True, header=True, mode = 'w')
 
-                        table = pd.read_csv('/result/affinity.csv', index_col=0)
+                        table = pd.read_csv('result/affinity.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/result/affinity.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('result/affinity.csv', index=True, header=True, mode = 'w')
 
-                        table = pd.read_csv('/result/agglomerative.csv', index_col=0)
+                        table = pd.read_csv('result/agglomerative.csv', index_col=0)
                         table.at[zdim_row, PEalpha_col] = ARI
-                        table.to_csv('/result/agglomerative.csv', index=True, header=True, mode = 'w')
+                        table.to_csv('result/agglomerative.csv', index=True, header=True, mode = 'w')
                         
 
                         return
@@ -321,21 +321,21 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
                     #table.to_csv('/N/slate/mraina/RESEPT_EGNN/result/bugtest.csv', index=True, header=True, mode = 'w')
 
                     
-                    table = pd.read_csv('/result/kmeans.csv', index_col=0)
+                    table = pd.read_csv('result/kmeans.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_k
-                    table.to_csv('/result/kmeans.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('result/kmeans.csv', index=True, header=True, mode = 'w')
 
-                    table = pd.read_csv('/result/spectral.csv', index_col=0)
+                    table = pd.read_csv('result/spectral.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_s
-                    table.to_csv('/result/spectral.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('result/spectral.csv', index=True, header=True, mode = 'w')
 
-                    table = pd.read_csv('/result/affinity.csv', index_col=0)
+                    table = pd.read_csv('result/affinity.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_af
-                    table.to_csv('/result/affinity.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('result/affinity.csv', index=True, header=True, mode = 'w')
 
-                    table = pd.read_csv('/result/agglomerative.csv', index_col=0)
+                    table = pd.read_csv('result/agglomerative.csv', index_col=0)
                     table.at[zdim_row, PEalpha_col] = ARI_ag
-                    table.to_csv('/result/agglomerative.csv', index=True, header=True, mode = 'w')
+                    table.to_csv('result/agglomerative.csv', index=True, header=True, mode = 'w')
                     
 
                     os.getcwd()
@@ -443,10 +443,10 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(index=pd.Index(zdim_index),
                         columns=PEalpha_col)
-    df.to_csv('/result/kmeans.csv', index=True, header=True, mode = 'w')
-    df.to_csv('/result/spectral.csv', index=True, header=True, mode = 'w')
-    df.to_csv('/result/affinity.csv', index=True, header=True, mode = 'w')
-    df.to_csv('/result/agglomerative.csv', index=True, header=True, mode = 'w')
+    df.to_csv('result/kmeans.csv', index=True, header=True, mode = 'w')
+    df.to_csv('result/spectral.csv', index=True, header=True, mode = 'w')
+    df.to_csv('result/affinity.csv', index=True, header=True, mode = 'w')
+    df.to_csv('result/agglomerative.csv', index=True, header=True, mode = 'w')
 
 
     """

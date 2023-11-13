@@ -87,11 +87,11 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
     scgnnsp_usePCA_List = [True, False]
     
 
-    directory_path = "/data/"
+    directory_path = "data/"
     data_path= os.path.join(directory_path, sample, "count.csv")
     spatial_path= os.path.join(directory_path, sample, "spa.csv")
     label_path= os.path.join(directory_path, sample, "labels.csv")
-    output_folder = "/kidney_results_1/RGB_images/"
+    output_folder = "kidney_results_1/RGB_images/"
     
     
     adata=load_data(data_path,spatial_path)[0]
@@ -108,8 +108,8 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample):
 
     sample_nick = sample.partition('_')[0] + "_" + sample.partition('-')[2]
     image_name = sample_nick + '_scGNN_' + 'logcpm' + '_PEalpha' + str(scgnnsp_alpha) + '_zdim' + str(scgnnsp_zdim)
-    clusters = pd.read_csv('/result/Cluster_labels/kidney085_0057_scGNN_logcpm_PEalpha2.0_zdim256_clusters.csv', header=None)
-    #clusters = sc.read('/result/Cluster_labels/results.h5ad')
+    clusters = pd.read_csv('result/Cluster_labels/kidney085_0057_scGNN_logcpm_PEalpha2.0_zdim256_clusters.csv', header=None)
+    #clusters = sc.read('result/Cluster_labels/results.h5ad')
     clusters["layers"] = clusters.iloc[:, [0]].astype(str)
     #print(clusters["layers"])
     
