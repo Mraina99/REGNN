@@ -12,7 +12,7 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
 ``` REGNN ``` requires Python 3.7+ and the installation of PyTorch 1.5.0 and mmcv-full 1.3.0. Additional python package dependencies can be found in 'requirements.txt'.
 
 #### Installation Guide
-1. Install ```PyTorch 1.5.0``` 
+1. Install ```PyTorch 1.5.0``` [official guide](https://pytorch.org/get-started/previous-versions/#linux-and-windows-9)
     ```
     # Conda Install
     conda install pytorch==1.5.0 torchvision==0.6.0 cpuonly -c pytorch
@@ -20,7 +20,6 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
     # Pip Install
     pip install torch==1.5.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
     ```
-    [official guide](https://pytorch.org/get-started/previous-versions/#linux-and-windows-9).
 2. Install ```mmcv-full 1.3.0``` using the following command:
     ```
     pip install mmcv-full==1.3.0 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.5.0/index.html
@@ -44,7 +43,6 @@ To run REGNN and recieve ARI scoring results, run the following:
 ```
 python calculate_ARI.py
 ```
-
 #### Paper Results
 ``` REGNN ``` was tested on 10X Visium SRT data from the KPMP (Kidney Precision Medicine Project) Atlas<sup>3</sup> . Results from running Kidney sample V10S14-085_XY04_21-0057 - CKD can be found in 'results' directory, in files 'all_results.csv' & 'ARI_table.csv'
 
