@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#SBATCH -J svp_sigAKI
+#SBATCH -p gpu
+#SBATCH -o svp_sigAKI_%j.txt
+#SBATCH -e svp_sigAKI_%j.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=mraina@iu.edu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=24:00:00
+#SBATCH --mem=100G
+#SBATCH -A r00206
+
+
+#Load any modules that your program needs
+module load miniconda
+
+#Activate Conda enviorment
+source activate /N/slate/mraina/egnn/
+
+#Change Directories
+cd /N/slate/mraina/REGNN_edge01/
+
+#Run your program
+python calculate_ARI_sigAKI.py
+
+
+
+

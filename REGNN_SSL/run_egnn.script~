@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#SBATCH -J run9_3
+#SBATCH -p general
+#SBATCH -o run9_3_%j.txt
+#SBATCH -e run9_3_%j.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=mraina@iu.edu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=48:00:00
+#SBATCH --mem=200G
+#SBATCH -A r00206
+
+
+#Load any modules that your program needs
+module load miniconda
+
+#Activate Conda enviorment
+source activate /N/slate/mraina/egnn/
+
+#Change Directories
+cd /N/slate/mraina/RESEPT_EGNN/
+
+#Run your program
+python calculate_ARI_9_3.py
+
+#python RGB_images_pipeline.py \
+#-expression /N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/count.csv \
+#-meta /N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/spa.csv \
+#-scaler /N/slate/mraina/Juexin/Eadon/kidneydata/nothing \
+#-output kidney_results_1  -embedding scGNN  -transform logcpm 
+
+#python evaluation_pipeline.py \
+#-expression /N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/count.csv \
+#-meta /N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/spa_alt.csv \
+#-scaler /N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/scale_factors.json \
+#-k 4 -label /N/slate/mraina/Juexin/Eadon/kidneydata/kidney085_XY04_21-0057/057_new.csv \
+#-model /N/slate/mraina/Juexin/RESEPT-main/model_151669/151669_scGNN.pth \
+#-output kidney_results_1  -embedding scGNN  -transform logcpm  -device cpu
+
+
+
