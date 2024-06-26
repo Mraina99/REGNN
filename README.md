@@ -32,21 +32,42 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
 
 ### Demo
 
-Place SRT data in data/ directory within a folder that corresponds with the sample or data name (ex. data/V10S14-085_XY04_21-0057/). Ensure that SRT data follows the required data formats specifed below.
+Create a new directory "Data" in the main REGNN directory. Place SRT data in Data/ directory within a folder that corresponds with the sample or data name (ex. Data/KidneySample/). Store the required data files within the dataset subdirectory and ensure that SRT data follows the required data formats specifed below.
 
 #### Required data formats
 * Expression file (Name as: count.csv): Rows as spot barcodes, Columns as genes
 * Coordinates file (Name as: spa.csv): Two columns with spatial x,y coordinates corresponding to each spot
 * Label/Annotation file (Name as: labels.csv): Rows as spot barcodes, Columns as labels, with 'class' being the name of the column with spot labels/annotations.
 
-#### Run REGNN
-To run REGNN and recieve ARI scoring results, run the following:
+Example of File Directory:
+```md
+REGNN
+├── Data/
+│   └── KidneySample/
+│       ├── count.csv
+│       ├── spa.csv
+│       └── labels.csv
+├── REGNN_GAE/
+│   └── results/
+└── REGNN_SSL/
+    └── results/
 ```
-python calculate_ARI.py
+
+#### Run REGNN
+Both versions of REGNN will return their results in the 'result' folder of the corresponding directory. 
+
+To run REGNN_GAE, run the following command:
+```
+python REGNN.py --load_dataset_name KidneySample --select_method GAE
+```
+
+To run REGNN_SSL, run the following command:
+```
+python REGNN.py --load_dataset_name KidneySample --select_method SSL
 ```
 
 #### Paper Results
-``` REGNN ``` was tested on 10X Visium SRT data from the KPMP (Kidney Precision Medicine Project) Atlas<sup>3</sup> . Results from running Kidney sample V10S14-085_XY04_21-0057 - CKD can be found in 'results' directory, in files 'all_results.csv' & 'ARI_table.csv'
+``` REGNN ``` was tested on 10X Visium SRT data from the KPMP (Kidney Precision Medicine Project) Atlas<sup>3</sup>. Gene expression counts and spatial coordinates of 10x Visum samples can be found at https://atlas.kpmp.org/repository.
 
 ### Reference
 1. Chang, Y., et al., Define and visualize pathological architectures of human tissues from spatially resolved transcriptomics using deep learning. Comput Struct Biotechnol J, 2022. 20: p. 4600-4617.
