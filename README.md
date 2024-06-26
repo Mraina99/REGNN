@@ -21,6 +21,7 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
     pip install torch==1.5.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
     ```
     [official guide](https://pytorch.org/get-started/previous-versions/#linux-and-windows-9).
+    
 2. Install ```mmcv-full 1.3.0``` using the following command:
     ```
     pip install mmcv-full==1.3.0 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.5.0/index.html
