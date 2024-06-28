@@ -6,7 +6,7 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
 ### Software Requirements
 
 #### OS Requirements
-``` REGNN ``` was tested on IU's Linux based supercomputer BigRed200<sup>2</sup> on a 64-core CPU compute node with 200GB RAM.
+``` REGNN ``` was tested on on Windows 11 12th Gen Intel(R) i7-1265U.
 
 #### Python Dependencies
 ``` REGNN ``` requires Python 3.7+ and the installation of PyTorch 1.5.0 and mmcv-full 1.3.0. Additional python package dependencies can be found in 'requirements.txt'.
@@ -22,18 +22,14 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
     ```
     [official guide](https://pytorch.org/get-started/previous-versions/#linux-and-windows-9).
     
-2. Install ```mmcv-full 1.3.0``` using the following command:
-    ```
-    pip install mmcv-full==1.3.0 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.5.0/index.html
-    ```
-3. Install the additional package dependencies:
+2. Install the additional package dependencies:
     ```
     pip install -r requirements.txt
     ```
 
 ### Demo
 
-Create a new directory "Data" in the main REGNN directory. Place SRT data in Data/ directory within a folder that corresponds with the sample or data name (ex. Data/KidneySample/). Store the required data files within the dataset subdirectory and ensure that SRT data follows the required data formats specifed below.
+Unzip V10S14-085_XY04_21-0057.zip within the Data/ subdirectory. Make sure that the unzipped files in Data/ directory within a folder that corresponds with the example file directory tree below (ex. Data/V10S14-085_XY04_21-0057/). Store the required data files within the dataset subdirectory and ensure that SRT data follows the required data formats specifed below.
 
 #### Required data formats
 * Expression file (Name as: count.csv): Rows as spot barcodes, Columns as genes
@@ -44,7 +40,7 @@ Example of File Directory:
 ```md
 REGNN
 ├── Data/
-│   └── KidneySample/
+│   └── V10S14-085_XY04_21-0057/
 │       ├── count.csv
 │       ├── spa.csv
 │       └── labels.csv
@@ -68,7 +64,7 @@ python REGNN.py --load_dataset_name KidneySample --select_method SSL
 ```
 
 #### Paper Results
-``` REGNN ``` was tested on 10X Visium SRT data from the KPMP (Kidney Precision Medicine Project) Atlas<sup>3</sup>. Gene expression counts and spatial coordinates of 10x Visum samples can be found at https://atlas.kpmp.org/repository.
+``` REGNN ``` was tested on 10X Visium SRT data from the KPMP (Kidney Precision Medicine Project) Atlas<sup>3</sup>. 
 
 ### Reference
 1. Chang, Y., et al., Define and visualize pathological architectures of human tissues from spatially resolved transcriptomics using deep learning. Comput Struct Biotechnol J, 2022. 20: p. 4600-4617.
