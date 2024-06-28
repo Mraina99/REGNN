@@ -9,7 +9,7 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
 ``` REGNN ``` was tested on on Windows 11 12th Gen Intel(R) i7-1265U.
 
 #### Python Dependencies
-``` REGNN ``` requires Python 3.7+ and the installation of PyTorch 1.5.0 and mmcv-full 1.3.0. Additional python package dependencies can be found in 'requirements.txt'.
+``` REGNN ``` requires Python 3.7+ and the installation of PyTorch 1.5.0. Additional python package dependencies can be found in 'requirements.txt'.
 
 #### Installation Guide
 1. Install ```PyTorch 1.5.0``` 
@@ -21,7 +21,7 @@ REGNN (Relation Equivariant Graph Neural Networks) is a graph deep learning fram
     pip install torch==1.5.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
     ```
     [official guide](https://pytorch.org/get-started/previous-versions/#linux-and-windows-9).
-    
+
 2. Install the additional package dependencies:
     ```
     pip install -r requirements.txt
@@ -55,12 +55,12 @@ Both versions of REGNN will return their results in the 'result' folder of the c
 
 To run REGNN_GAE, run the following command:
 ```
-python REGNN.py --load_dataset_name KidneySample --select_method GAE
+python REGNN.py --load_dataset_name V10S14-085_XY04_21-0057 --select_method GAE
 ```
 
 To run REGNN_SSL, run the following command:
 ```
-python REGNN.py --load_dataset_name KidneySample --select_method SSL
+python REGNN.py --load_dataset_name V10S14-085_XY04_21-0057 --select_method SSL
 ```
 
 #### Paper Results
