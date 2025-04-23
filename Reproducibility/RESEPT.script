@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#SBATCH -J RESEPT
+#SBATCH -p general
+#SBATCH -o RESEPT_kidneyV10S14-085_XY01_20-0038.txt
+#SBATCH -e RESEPT_kidneyV10S14-085_XY01_20-0038.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=trstans@iu.edu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=48:00:00
+#SBATCH --mem=400G
+#SBATCH -A r00206
+
+
+#Load any modules that your program needs
+module load miniconda
+
+#Activate Conda enviorment
+source activate RESEPT
+
+#Change Directories
+#cd /N/slate/mraina/Juexin/RESEPT-main/
+
+#Run your program - Note: This script used with RESEPT https://github.com/OSU-BMBL/RESEPT
+srun python test_pipeline.py \
+-expression ~/kidneydata2/kidneyV10S14-085_XY01_20-0038/count.csv \
+-meta ~/kidneydata2/kidneyV10S14-085_XY01_20-0038/spa.csv \
+-scaler ~/kidneydata2/kidneyV10S14-085_XY01_20-0038/sample.json \
+-k 4 \
+-model /N/u/trstans/Quartz/RESEPT_forKidneyData/model_151669/151669_scGNN.pth \
+-output results/kidneyV10S14-085_XY01_20-0038  -embedding scGNN  -transform logcpm  -device cpu

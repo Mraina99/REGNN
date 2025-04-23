@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#SBATCH -J FICT1
+#SBATCH -p general
+#SBATCH -o FICT1_%j.txt
+#SBATCH -e FICT1_%j.err
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=24:00:00
+#SBATCH --mem=50G
+#SBATCH -A r00206
+
+
+#Load any modules that your program needs
+module load miniconda
+
+#Activate Conda enviorment
+source activate /N/scratch/mraina/FICT_env/
+
+#Change Directories
+cd /N/slate/mraina/Juexin/REGNN/Clustering/FICT-SAMPLE-master/
+
+#Python Path
+export PYTHONPATH="$(pwd)/FICT/:$(pwd)/GECT/:$PYTHONPATH"
+
+
+#Run the preprocessing scripts
+python prepare_seqfish.py -i "/N/slate/mraina/Juexin/Eadon/newkidneydata/V10S14-085_XY02_20-0040" -o "Benchmark/V10S14-085_XY02_20-0040/data/"
+
+# Running FICT
+DATA=Benchmark/V10S14-085_XY02_20-0040/data/
+python FICT/fict/run.py -p $DATA/0 -o Benchmark/V10S14-085_XY02_20-0040/FICT_all/ --n_type 4
+
