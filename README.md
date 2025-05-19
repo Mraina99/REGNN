@@ -86,6 +86,8 @@ python REGNN.py --load_dataset_name V10S14-085_XY04_21-0057 --select_method SSL
 * --n_clusters: Number of final clusters. If including annotation file, will by default set n_clusters to number of classes in annotation file
     * (ex. --n_clusters 4)
 
+##### Reproducability
+Contains the processes used to test various SRT methods, as seen in the publication.
 
 ### Reference
 1. Raina, M., Cheng, H., Ferreira, R. M., Stansfield, T., Modak, C., Cheng, Y. H., ... & Wang, J. (2025). Relation Equivariant Graph Neural Networks to Explore the Mosaic-like Tissue Architecture of Kidney Diseases on Spatially Resolved Transcriptomics. Bioinformatics, btaf303. [https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaf303/8129567]
