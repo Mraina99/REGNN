@@ -18,6 +18,7 @@ numba==0.53.1
 seaborn==0.11.1
 anndata==0.7.6
 labml==0.4.168
+positional-encodings==6.0.1
 cityscapesscripts==2.2.0
 leidenalg==0.8.7
 Pillow==8.3.1
