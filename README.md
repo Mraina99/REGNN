@@ -88,12 +88,7 @@ python REGNN.py --load_dataset_name V10S14-085_XY04_21-0057 --select_method SSL
 
 
 ### Reference
-<<<<<<< HEAD
-1. Chang, Y., et al., Define and visualize pathological architectures of human tissues from spatially resolved transcriptomics using deep learning. Comput Struct Biotechnol J, 2022. 20: p. 4600-4617.
-2. This research was supported in part by Lilly Endowment, Inc., through its support for the Indiana University Pervasive Technology Institute.
-3. de Boer, I.H., et al., Rationale and design of the Kidney Precision Medicine Project. Kidney Int, 2021. 99(3): p. 498-510.
+1. Raina, M., Cheng, H., Ferreira, R. M., Stansfield, T., Modak, C., Cheng, Y. H., ... & Wang, J. (2025). Relation Equivariant Graph Neural Networks to Explore the Mosaic-like Tissue Architecture of Kidney Diseases on Spatially Resolved Transcriptomics. Bioinformatics, btaf303. [https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaf303/8129567]
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15268106.svg)](https://doi.org/10.5281/zenodo.15268106)
-=======
-1. Raina, M., Cheng, H., Ferreira, R. M., Stansfield, T., Modak, C., Cheng, Y. H., ... & Wang, J. (2025). Relation Equivariant Graph Neural Networks to Explore the Mosaic-like Tissue Architecture of Kidney Diseases on Spatially Resolved Transcriptomics. Bioinformatics, btaf303. [https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaf303/8129567]
->>>>>>> REGNN_Publication_Update
+
