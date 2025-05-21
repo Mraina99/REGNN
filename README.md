@@ -58,7 +58,7 @@ REGNN
 │       ├── count.csv
 │       └── spa.csv
 └── REGNN_run/
-    └── results/
+    └── result/
         ├── Cluster_labels/
         └── Embeddings/
 ```
