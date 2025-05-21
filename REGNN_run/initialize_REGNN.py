@@ -123,14 +123,14 @@ def pseudo_images(scgnnsp_zdim,scgnnsp_alpha,sample, args):
                     # Export final embeddings
                     np.savetxt('result/Embeddings/'+image_name+'_embedding.csv', adata.obsm["embedding"], delimiter=',')
                     
-                    print('Embeddings output to Results/Embeddings folder')
+                    print('Embeddings output to REGNN_run/result/Embeddings folder')
 
                     # Get clustering from kmeans using embeddings
                     kmeans(adata, n_cluster)
                     layer = adata.obs["layer"]
                     np.savetxt('result/Cluster_labels/'+image_name+'_clusters.csv', adata.obs["layer"], delimiter=',')
 
-                    print('Clusterings output to Results/Cluster_labels folder')
+                    print('Clusterings output to REGNN_run/result/Cluster_labels folder')
 
 
                     if args.output_ARI == True:
